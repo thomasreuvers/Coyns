@@ -2,6 +2,7 @@ package ftxApi;
 
 import com.google.gson.Gson;
 import ftxApi.model.CoinResponseModel;
+import ftxApi.model.FutureResponseModel;
 
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -22,6 +23,11 @@ public class FtxClient {
     public CoinResponseModel getCoins()
     {
         return get("api/coins", CoinResponseModel.class);
+    }
+
+    public FutureResponseModel getFutures()
+    {
+        return get("api/futures", FutureResponseModel.class);
     }
 
     private <T> T get(String endpoint, Class<T> obj) {
